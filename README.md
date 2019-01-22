@@ -8,4 +8,4 @@
 
 * [Challenge 4](2-JS-basics/challenge%204/index.html)
 
-
+* [Challenge 5](2-JS-basics/challenge%205/index.html)
