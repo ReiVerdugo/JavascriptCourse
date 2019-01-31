@@ -40,12 +40,12 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
             //Add score
             roundScore += dice + dice2;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
-            
+            previousDice = dice;
         } else {
             //Next player
             nextPlayer();
         }
-        previousDice = dice;
+        
         
         //3. Lose entire score if previous dice was 6
 //        if (dice === 6 && previousDice === 6) {
