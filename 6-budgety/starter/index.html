@@ -23,11 +23,11 @@
                 <div class="amount">0</div>
                 <div class="income">
                     <div class="display-title">INCOME</div>
-                    <div class="small-amount" id="income-amount">0</div>
+                    <div class="small-amount" id="income-amount">+ 0.00</div>
                 </div>
                 <div class="expenses">
                     <div class="display-title">EXPENSES</div>
-                    <div class="small-amount" id="expenses-amount">0</div>
+                    <div class="small-amount" id="expenses-amount">- 0.00</div>
                 </div>
             </div>
         </div>
@@ -37,20 +37,20 @@
               <option value="+">+</option>
               <option value="-">-</option>
             </select>
-            <input type="text" class="nanda" placeholder="Add description" id="description">
-            <input type="number" class="nanda" placeholder="Add value" id="value">
-            <button type="button" class="nanda" id="submit">OK</button>
+            <input type="text" class="nanda, description-field" placeholder="Add description" id="description">
+            <input type="number" class="nanda, value-field" placeholder="Add value" id="value">
+            <input type="image" class="check-button" id="submit" src="check-circle-o.png" >
         </div>
         <div class = "tables">
             <table class="table" id="income-table" style="float: left;">
               <tr>
-                <th>INCOME</th>
+                <th class="income-header">INCOME</th>
               </tr>
             </table>
         
             <table class="table" id="expenses-table" style="float: right;">
               <tr>
-                <th>EXPENSES</th>
+                <th class="expense-header">EXPENSES</th>
               </tr>
             </table>
         </div>
