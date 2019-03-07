@@ -12,6 +12,8 @@ var totalAmount = 0;
 var incomeAmountLabel = document.getElementById("income-amount");
 var expensesAmountLabel = document.getElementById("expenses-amount");
 var totalAmountLabel = document.querySelector('.amount');
+var percentageLabel = document.getElementById("percentage-label");
+
 
 document.getElementById('submit').addEventListener('click', function() {
     var description, value, type;
@@ -31,6 +33,7 @@ function addIncome(entry) {
     var row = incomesTable.insertRow(-1);
     addIncomeRow(row, entry);
     updateIncomeAmountLabel(incomeAmount);
+    updatePercentages();
 }
 
 function updateIncomeAmountLabel(value) {
@@ -85,13 +88,16 @@ function addExpenseRow(row, entry) {
     cell2.className = "expense-header"
     cell2.colSpan = 1;
     
-    var percentage = ((entry.value * 100) / incomeAmount).toFixed(2);
+    var percentage = incomeAmount > 0 ? ((entry.value * 100) / incomeAmount).toFixed(2) : 0;
     cell3.textContent = percentage + "%";
     cell3.className = "percentage";
     
     var button = add(expensesTable, entry, row);
     cell4.appendChild(button)
     row.className = "button-cell"
+    
+    percentage = incomeAmount > 0 ? ((expensesAmount * 100) / incomeAmount).toFixed(2) : 0;
+    percentageLabel.textContent = percentage + "%";
     updateTotalAmount();
 }
 
@@ -122,6 +128,18 @@ function add(table, entry, row) {
     element.onclick = function() { // Note this is a function
         table.deleteRow(row.rowIndex);
         deleteAmounts(entry);
+        updatePercentages();
     };
     return element;
+}
+
+function updatePercentages() {
+    for (var i= 1, row; row = expensesTable.rows[i]; i++) {
+        var value = parseFloat(row.cells[1].textContent);
+        var cellPercentage = row.cells[2];
+        var percentage = incomeAmount > 0 ? ((value * 100) / incomeAmount).toFixed(2) : 0;
+        cellPercentage.textContent = percentage + "%";
+    }
+    percentage = incomeAmount > 0 ? ((expensesAmount * 100) / incomeAmount).toFixed(2) : 0;
+    percentageLabel.textContent = percentage + "%";
 }
