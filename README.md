@@ -10,4 +10,6 @@
 
 * [Challenge 5](2-JS-basics/challenge%205/index.html)
 
-* [Challenge 6](4-DOM-pig-game/challenge%206/index.html)
+* [Challenge 6- Dice Game](4-DOM-pig-game/challenge%206/index.html)
+
+* [Challenge 7- Budgety App](6-budgety/starter/index.html)
